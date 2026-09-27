@@ -17,7 +17,7 @@ interface Props {
 const {
   topper = 'What We Do',
   heading = 'Our Services',
-  description = 'From routine maintenance to complex projects, we deliver quality workmanship with honest pricing.',
+  description = 'Supporting Christian ministers, chaplains, and church workers through reflective, confidential supervision.',
   services = siteData.services.map((s) => ({ ...s, href: '/services' })),
 } = Astro.props;
 ---
@@ -30,9 +30,9 @@ const {
       <p class="mt-3 text-text-muted leading-relaxed">{description}</p>
     </div>
 
-    <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
+    <ul class="flex flex-wrap justify-evenly gap-y-6" role="list">
       {services.map((service) => (
-        <li>
+        <li class="w-full sm:w-[45%] lg:w-[30%]">
           <a
             href={service.href || '/services'}
             class="group flex h-full cursor-pointer flex-col rounded-lg border border-border bg-background p-6 shadow-sm transition-shadow duration-200 hover:shadow-md"

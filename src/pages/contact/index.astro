@@ -9,7 +9,7 @@ import { siteData } from "../../data/siteData";
 
 <BaseLayout
   title="Contact"
-  description={`Get in touch with ${brand.name}. Request a free quote or ask us a question.`}
+  description={`Get in touch with ${brand.name}. Book a session or ask a question.`}
 >
   <Header slot="header" />
 
@@ -22,31 +22,22 @@ import { siteData } from "../../data/siteData";
       <!-- Form -->
       <div class="lg:col-span-3">
         <h2 class="font-heading text-h2 font-bold uppercase text-text">
-          Send us a message
+          Send a message
         </h2>
         <p class="mt-2 mb-8 text-text-muted">
-          Fill out the form below and we&rsquo;ll get back to you within one
+          Fill out the form below and I&rsquo;ll get back to you within one
           business day.
         </p>
 
         <form
-          name="contact"
+          action="https://api.web3forms.com/submit"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/contact/success"
           class="flex flex-col gap-5"
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden" aria-hidden="true">
-            <label
-              >Leave this empty: <input
-                name="bot-field"
-                tabindex="-1"
-                autocomplete="off"
-              /></label
-            >
-          </p>
+          <input type="hidden" name="access_key" value="eadb8692-d946-4520-a910-716b27b60fea" />
+          <input type="hidden" name="subject" value="New contact form submission from mypastoralsupervision.com.au" />
+          <input type="hidden" name="redirect" value="/contact/success" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
 
           <label class="flex flex-col gap-1.5">
             <span class="text-sm font-medium text-text"
@@ -111,15 +102,17 @@ import { siteData } from "../../data/siteData";
 
       <!-- Contact info sidebar -->
       <aside class="space-y-8 lg:col-span-2">
-        <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Call Us</h3>
-          <a
-            href={`tel:${siteData.phoneForTel}`}
-            class="mt-1 block font-medium text-primary-light transition-colors hover:text-primary"
-          >
-            {siteData.phoneFormatted}
-          </a>
-        </div>
+        {siteData.phoneFormatted && (
+          <div>
+            <h3 class="font-heading text-lg font-semibold text-text">Call Us</h3>
+            <a
+              href={`tel:${siteData.phoneForTel}`}
+              class="mt-1 block font-medium text-primary-light transition-colors hover:text-primary"
+            >
+              {siteData.phoneFormatted}
+            </a>
+          </div>
+        )}
 
         <div>
           <h3 class="font-heading text-lg font-semibold text-text">Email Us</h3>
@@ -132,14 +125,19 @@ import { siteData } from "../../data/siteData";
         </div>
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Visit Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Location</h3>
           <a
             href={siteData.address.mapLink}
             target="_blank"
             rel="noopener noreferrer"
             class="mt-1 block text-text-muted transition-colors hover:text-text"
           >
-            {siteData.address.lineOne}<br />
+            {siteData.address.lineOne && (
+              <>
+                {siteData.address.lineOne}
+                <br />
+              </>
+            )}
             {
               siteData.address.lineTwo && (
                 <>
@@ -148,9 +146,9 @@ import { siteData } from "../../data/siteData";
                 </>
               )
             }
-            {siteData.address.city}, {siteData.address.state}{" "}{
-              siteData.address.zip
-            }
+            {siteData.address.city}
+            {siteData.address.state && `, ${siteData.address.state}`}
+            {siteData.address.zip && ` ${siteData.address.zip}`}
           </a>
         </div>
 

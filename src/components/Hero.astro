@@ -20,15 +20,15 @@ interface Props {
 }
 
 const {
-  topper = 'Licensed & Insured',
+  topper = 'Member, Australasian Association of Supervision',
   heading = brand.tagline,
   description = brand.description,
-  ctaLabel = 'Get a Free Quote',
-  ctaHref = '/contact',
-  secondaryLabel = 'Our Services',
-  secondaryHref = '/services',
+  ctaLabel = 'Book a Session',
+  ctaHref = '/services',
+  secondaryLabel = 'Learn More About Us',
+  secondaryHref = '/about',
   imageSrc = localHeroImage ?? PLACEHOLDER,
-  imageAlt = 'Professional tradesperson at work',
+  imageAlt = 'Tony Calman speaking with someone in conversation',
 } = Astro.props;
 ---
 
@@ -69,14 +69,6 @@ const {
           {secondaryLabel}
         </a>
       </div>
-
-      <!-- Tap-to-call -->
-      <a
-        href={`tel:${siteData.phoneForTel}`}
-        class="inline-flex items-center gap-2 pt-1 text-sm font-semibold text-text-muted transition-colors hover:text-primary"
-      >
-        Call{" "}{siteData.phoneFormatted}
-      </a>
     </div>
 
     <!-- Hero image -->

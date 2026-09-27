@@ -18,7 +18,8 @@
  * ────────────────
  *   src/assets/images/
  *     hero/      ← one image used in the homepage Hero section
- *     about/     ← one image used in the About section and About page
+ *     about/     ← images used in the About section and About page
+ *     logos/     ← credential/membership logos (e.g. AAOS)
  *     gallery/   ← all project photos (drop any number of files here)
  *
  * Until you add local files the components fall back to placeholder URLs
@@ -32,18 +33,23 @@ import type { ImageMetadata } from 'astro';
 // ── Hero ──────────────────────────────────────────────────────────────────────
 // Recommended: landscape, at least 1600 × 1200 px
 // To swap: replace the file in src/assets/images/hero/ and update the filename.
-import heroImage from '../assets/images/hero/hero.jpg';
+import heroImage from '../assets/images/hero/Tony Talking.png';
 export { heroImage };
 
 // ── About ─────────────────────────────────────────────────────────────────────
 // Recommended: portrait or square, at least 900 × 700 px
-// To use: drop your file into src/assets/images/about/, then uncomment the
-// import below, update the filename, and change the export to: export { aboutImage };
-//
-// import aboutImage from '../assets/images/about/team.jpg';
-export const aboutImage: ImageMetadata | undefined = undefined;
-//comment out above and uncomment below to use your own image
-// export { aboutImage };
+// Used for the Team card on the About page.
+import aboutImage from '../assets/images/about/Tony Head Shot.png';
+export { aboutImage };
+
+// Used for the "Our Story" section photo on the About page.
+import storyImage from '../assets/images/about/Tony Preaching.png';
+export { storyImage };
+
+// ── Logos ─────────────────────────────────────────────────────────────────────
+// Membership/credential logos shown in the trust bar.
+import aaosLogo from '../assets/images/logos/AAOS_Member_Logo.jpg';
+export { aaosLogo };
 
 // ── Gallery — auto-discovered ─────────────────────────────────────────────────
 // Drop any number of image files into src/assets/images/gallery/ and they will

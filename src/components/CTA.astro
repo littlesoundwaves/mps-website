@@ -10,9 +10,9 @@ interface Props {
 
 const {
   title = 'Ready to Get Started?',
-  description = 'Contact us today for a free, no-obligation quote. We\'re here to help with any project — big or small.',
-  buttonText = 'Get Your Free Quote',
-  buttonHref = '/contact',
+  description = 'Book a free 30-minute initial consult to discuss what pastoral supervision involves, with no obligation to continue.',
+  buttonText = 'Book a Session',
+  buttonHref = '/services',
 } = Astro.props;
 ---
 
@@ -33,10 +33,10 @@ const {
         {buttonText}
       </a>
       <a
-        href={`tel:${siteData.phoneForTel}`}
+        href="/contact"
         class="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-2 border-primary-fg/30 px-8 py-3 text-base font-bold text-primary-fg transition-colors hover:border-primary-fg hover:bg-primary-fg/10"
       >
-        Call{" "}{siteData.phoneFormatted}
+        Contact Us
       </a>
     </div>
   </div>

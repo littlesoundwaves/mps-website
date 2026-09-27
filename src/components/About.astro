@@ -17,21 +17,23 @@ interface Props {
 }
 
 const {
-  topper = 'Who We Are',
-  heading = 'Trusted by homeowners for over 15 years',
+  topper = 'Our Approach',
+  heading = 'Integrity of heart and skilful hands',
   body = [
-    'We\'re a locally owned and operated business dedicated to delivering honest, dependable service to our community. Our team of licensed professionals takes pride in every job — big or small.',
-    'From day one, we\'ve built our reputation on doing the work right, showing up on time, and treating every home like our own.',
+    'Pastoral Supervision is an opportunity for those engaged in Christian ministry to meet with a skilled, independent supervisor to evaluate their practice — through courageous conversations and honest reflection, within a relationship of trust and confidentiality.',
+    'Sessions are led by Tony Calman, an ordained Baptist minister with over two decades of local church ministry experience and a Graduate Certificate in Pastoral Supervision from St Marks National Theological Centre.',
   ],
   benefits = [
-    'Background-checked, licensed professionals',
-    'Upfront pricing with no hidden fees',
-    'Satisfaction guaranteed on every project',
+    'Courageous conversations',
+    'Honest reflection',
+    'Personal growth',
+    'Leadership development',
+    'Clear purpose',
   ],
   ctaLabel = 'More About Us',
   ctaHref = '/about',
   imageSrc = localAboutImage ?? PLACEHOLDER,
-  imageAlt = 'Friendly professional team on a job site',
+  imageAlt = 'Tony Calman, Pastoral Supervisor',
 } = Astro.props;
 ---
 
@@ -44,10 +46,10 @@ const {
         src={imageSrc}
         alt={imageAlt}
         width={700}
-        height={525}
+        height={800}
         loading="lazy"
         decoding="async"
-        class="size-full object-cover"
+        class="size-full object-cover object-top"
       />
     </div>
 
@@ -60,7 +62,7 @@ const {
         <p class="text-text-muted leading-relaxed">{paragraph}</p>
       ))}
 
-      <!-- Benefits list -->
+      <!-- Values list -->
       <ul class="space-y-3 pt-2" role="list">
         {benefits.map((benefit) => (
           <li class="flex items-start gap-3">

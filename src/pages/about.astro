@@ -7,11 +7,12 @@ import CTA from '../components/CTA.astro';
 import { Image } from 'astro:assets';
 import { brand } from '../config/brand';
 import { siteData } from '../data/siteData';
+import { storyImage } from '../config/images';
 
 const { about } = siteData;
 ---
 
-<BaseLayout title="About Us" description={`Learn about ${brand.name} — our story, team, and commitment to quality service.`}>
+<BaseLayout title="About Us" description={`Learn about ${brand.name} — pastoral supervision for Christian ministers, chaplains, and church workers.`}>
   <Header slot="header" />
 
   <Banner title="About Us" />
@@ -21,8 +22,8 @@ const { about } = siteData;
     <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
       <div class="overflow-hidden rounded-lg shadow-lg">
         <Image
-          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80"
-          alt="Our team planning a project together"
+          src={storyImage}
+          alt="Tony Calman preaching"
           width={800}
           height={600}
           loading="lazy"
@@ -31,7 +32,7 @@ const { about } = siteData;
       </div>
       <div class="space-y-5">
         <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Story</span>
-        <h2 class="font-heading text-h2 font-bold uppercase text-text">Built on trust, driven by quality</h2>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Purpose, vision &amp; values</h2>
         {about.story.map((paragraph) => (
           <p class="text-text-muted leading-relaxed">{paragraph}</p>
         ))}
@@ -43,8 +44,8 @@ const { about } = siteData;
   <section class="bg-surface py-section">
     <div class="mx-auto max-w-site px-4 sm:px-6">
       <div class="mx-auto mb-10 max-w-2xl text-center">
-        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Team</span>
-        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">Meet the crew</h2>
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Your Supervisor</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">About Tony Calman</h2>
       </div>
 
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -56,7 +57,7 @@ const { about } = siteData;
               width={400}
               height={400}
               loading="lazy"
-              class="aspect-square w-full object-cover"
+              class="aspect-square w-full object-cover object-top"
             />
             <div class="p-5">
               <h3 class="font-heading text-lg font-semibold text-text">{name}</h3>

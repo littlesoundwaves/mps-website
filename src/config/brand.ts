@@ -14,12 +14,12 @@
 
 export const brand = {
   // ── Site Identity ──────────────────────────────────────────────────────────
-  name: 'Small Business Starter',
-  tagline: 'Professional service you can trust.',
+  name: 'My Pastoral Supervision',
+  tagline: 'Integrity of heart and skilful hands',
   description:
-    'A fast, mobile-first small-business website template built with Astro 7 and Tailwind v4. Fully customisable for any trade or service business.',
-  url: 'https://example.com',
-  locale: 'en_US',
+    'Pastoral supervision for Christian ministers, chaplains, church workers, and pastoral carers, provided by a member of the Australasian Association of Supervision.',
+  url: 'https://www.mypastoralsupervision.com.au',
+  locale: 'en_AU',
 
   // ── Fonts ──────────────────────────────────────────────────────────────────
   // To swap fonts: change the `name` values here AND update astro.config.mjs
