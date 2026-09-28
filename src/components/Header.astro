@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { brand } from "../config/brand";
 import { siteData } from "../data/siteData";
+import { mpsLogo } from "../config/images";
 
 const { nav } = siteData;
 const strip = (p: string) =>
@@ -13,20 +15,36 @@ const currentPath = strip(Astro.url.pathname);
   transition:persist
 >
   <div
-    class="mx-auto flex max-w-site items-center justify-between px-4 py-4 sm:px-6"
+    class="mx-auto flex max-w-site items-center justify-between px-4 py-3 sm:px-6"
   >
     <!-- Logo -->
-    <div class="flex flex-col gap-2">
-    <a
-      href="/"
-      class="font-heading text-xl font-bold uppercase tracking-wide text-primary transition-opacity hover:opacity-80"
-    >
-      {brand.name}
-    </a>
-      <span class="rounded-full lg:hidden text-xs font-medium">
-        {siteData.license}
-      </span>
-      </div>
+    <div class="flex min-w-0 flex-col gap-1">
+      <a
+        href="/"
+        class="flex items-center gap-3 transition-opacity hover:opacity-80"
+      >
+        <Image
+          src={mpsLogo}
+          alt="My Pastoral Supervision logo"
+          width={96}
+          height={96}
+          loading="eager"
+          class="size-10 shrink-0 object-contain sm:size-12"
+        />
+        <span
+          class="font-heading text-base font-bold uppercase leading-tight tracking-wide text-primary sm:text-xl"
+        >
+          {brand.name}
+        </span>
+      </a>
+      {
+        siteData.license && (
+          <span class="rounded-full text-xs font-medium lg:hidden">
+            {siteData.license}
+          </span>
+        )
+      }
+    </div>
 
     <!-- Desktop nav -->
     <nav
@@ -85,7 +103,7 @@ const currentPath = strip(Astro.url.pathname);
       type="button"
       aria-expanded="false"
       aria-controls="mobile-menu"
-      class="relative inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-text-muted hover:bg-surface lg:hidden"
+      class="relative inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md text-text-muted hover:bg-surface lg:hidden"
     >
       <span class="sr-only">Toggle menu</span>
       <span class="hamburger-box" aria-hidden="true">
