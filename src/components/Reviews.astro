@@ -1,18 +1,12 @@
 ---
-import { siteData } from '../data/siteData';
-
 interface Props {
   topper?: string;
   heading?: string;
-  message?: string;
-  ctaLabel?: string;
 }
 
 const {
   topper = 'Reviews',
   heading = 'What clients say',
-  message = 'See what past clients have said on Google.',
-  ctaLabel = 'Read our Google Reviews',
 } = Astro.props;
 ---
 
@@ -20,19 +14,11 @@ const {
   <div class="mx-auto max-w-site px-4 text-center sm:px-6">
     <span class="text-topper font-bold uppercase tracking-widest text-accent">{topper}</span>
     <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">{heading}</h2>
-    <p class="mt-3 text-text-muted leading-relaxed">{message}</p>
 
-    {siteData.socials.google && (
-      <div class="mt-6">
-        <a
-          href={siteData.socials.google}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex min-h-11 items-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-bold text-primary-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-        >
-          {ctaLabel}
-        </a>
-      </div>
-    )}
+    <div class="mt-8">
+      <!-- Elfsight Google Reviews | My Pastoral Supervision -->
+      <script src="https://elfsightcdn.com/platform.js" async is:inline></script>
+      <div class="elfsight-app-e5fee799-aee9-4701-84a5-9c3d520c6566" data-elfsight-app-lazy></div>
+    </div>
   </div>
 </section>
