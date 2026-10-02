@@ -17,7 +17,7 @@ export const brand = {
   name: 'My Pastoral Supervision',
   tagline: 'Integrity of heart and skilful hands',
   description:
-    'Pastoral supervision for Christian ministers, chaplains, church workers, and pastoral carers, provided by a member of the Australasian Association of Supervision.',
+    'Online and in-person pastoral supervision for Christian ministers, chaplains, church workers, and pastoral carers across Australia, provided by a member of the Australasian Association of Supervision.',
   url: 'https://www.mypastoralsupervision.com.au',
   locale: 'en_AU',
 
