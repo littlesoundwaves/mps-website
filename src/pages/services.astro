@@ -8,7 +8,82 @@ import { brand } from '../config/brand';
 import { siteData } from '../data/siteData';
 
 const { services } = siteData;
+------
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
+import { brand } from '../config/brand';
+import { siteData } from '../data/siteData';
+
+const { services } = siteData;
 ---
+
+<BaseLayout
+  title="Book Pastoral Supervision — Online Sessions Available"
+  description="Book a pastoral supervision session, online or in person. $135 per session, with a free initial consult for new clients."
+>
+  <Header slot="header" />
+
+  <Banner title="Book a Session" />
+
+  <section class="py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">How supervision works</h2>
+        <p class="mt-3 text-text-muted leading-relaxed">
+          Sessions are offered in person or online, tailored to your ministry context.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {services.map((service) => (
+          <div class="flex gap-5 rounded-lg border border-border bg-background p-6 shadow-sm">
+            <div>
+              <h3 class="font-heading text-h3 font-semibold text-text">{service.title}</h3>
+              <p class="mt-2 text-text-muted leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / Booking -->
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
+      <span class="text-topper font-bold uppercase tracking-widest text-accent">Fees</span>
+      <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">$135 per session</h2>
+      <p class="mt-3 text-text-muted leading-relaxed">
+        New clients can book a free 30-minute initial consult to discuss supervision and make initial introductions. The links below show available times, making it easy to book — whether you'd prefer to meet in person or online.
+      </p>
+
+      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <a
+          href="https://tidycal.com/3zve8x1/pastoralsupervision-m24ez6n"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex min-h-11 items-center gap-2 rounded-md bg-accent px-8 py-3 text-base font-bold text-accent-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          Book Free Initial Consult
+        </a>
+        <a
+          href="https://tidycal.com/3zve8x1/pastoralsupervision"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex min-h-11 items-center gap-2 rounded-md border-2 border-primary px-8 py-3 text-base font-bold text-primary transition-colors hover:bg-primary hover:text-primary-fg"
+        >
+          Book a Regular Session
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+
+  <Footer slot="footer" />
+</BaseLayout>
 
 <BaseLayout title="Book a Session" description={`Book a pastoral supervision session with ${brand.name}. $135 per session, with a free initial consult for new clients.`}>
   <Header slot="header" />
