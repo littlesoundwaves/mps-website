@@ -1,85 +1,83 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Banner from '../components/Banner.astro';
+import CTA from '../components/CTA.astro';
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import { aboutImage as localAboutImage } from '../config/images';
+import { brand } from '../config/brand';
+import { siteData } from '../data/siteData';
+import { storyImage } from '../config/images';
 
-const PLACEHOLDER = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&q=80';
-
-interface Props {
-  topper?: string;
-  heading?: string;
-  body?: string[];
-  benefits?: string[];
-  ctaLabel?: string;
-  ctaHref?: string;
-  imageSrc?: ImageMetadata | string;
-  imageAlt?: string;
-}
-
-const {
-  topper = 'Our Approach',
-  heading = 'Integrity of heart and skilful hands',
-  body = [
-    'Pastoral Supervision is an opportunity for those engaged in Christian ministry to meet with a skilled, independent supervisor to evaluate their practice — through courageous conversations and honest reflection, within a relationship of trust and confidentiality.',
-    'Sessions are led by Tony Calman, an ordained Baptist minister with over two decades of local church ministry experience and a Graduate Certificate in Pastoral Supervision from St Marks National Theological Centre.',
-  ],
-  benefits = [
-    'Courageous conversations',
-    'Honest reflection',
-    'Personal growth',
-    'Leadership development',
-    'Clear purpose',
-  ],
-  ctaLabel = 'More About Me',
-  ctaHref = '/about',
-  imageSrc = localAboutImage ?? PLACEHOLDER,
-  imageAlt = 'Tony Calman, Pastoral Supervisor',
-} = Astro.props;
+const { about } = siteData;
+const tony = about.team[0];
 ---
 
-<section class="py-section">
-  <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+<BaseLayout
+  title="About Tony Calman — Accredited Pastoral Supervisor"
+  description="Meet Tony Calman, an accredited pastoral supervisor supporting Christian ministers, chaplains, and church workers online and in person across Australia."
+>
+  <Header slot="header" />
 
-    <!-- Image -->
-    <div class="overflow-hidden rounded-lg shadow-lg">
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        width={700}
-        height={800}
-        loading="lazy"
-        decoding="async"
-        class="size-full object-cover object-top"
-      />
-    </div>
+  <Banner title="About" />
 
-    <!-- Content -->
-    <div class="space-y-5">
-      <span class="text-topper font-bold uppercase tracking-widest text-accent">{topper}</span>
-      <h2 class="font-heading text-h2 font-bold uppercase text-text">{heading}</h2>
-
-      {body.map((paragraph) => (
-        <p class="text-text-muted leading-relaxed">{paragraph}</p>
-      ))}
-
-      <!-- Values list -->
-      <ul class="space-y-3 pt-2" role="list">
-        {benefits.map((benefit) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-0.5 shrink-0 text-accent font-bold" aria-hidden="true">&check;</span>
-            <span class="text-text">{benefit}</span>
-          </li>
+  <!-- Story -->
+  <section class="py-section">
+    <div class="mx-auto grid max-w-site grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <Image
+          src={storyImage}
+          alt="Tony Calman preaching"
+          width={800}
+          height={600}
+          loading="lazy"
+          class="size-full object-cover"
+        />
+      </div>
+      <div class="space-y-5">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Our Story</span>
+        <h2 class="font-heading text-h2 font-bold uppercase text-text">Purpose, vision &amp; values</h2>
+        {about.story.map((paragraph) => (
+          <p class="text-text-muted leading-relaxed">{paragraph}</p>
         ))}
-      </ul>
-
-      <div class="pt-2">
-        <a
-          href={ctaHref}
-          class="inline-flex min-h-11 items-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-bold text-primary-fg shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-        >
-          {ctaLabel}
-        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-surface py-section">
+    <div class="mx-auto max-w-site px-4 sm:px-6">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <span class="text-topper font-bold uppercase tracking-widest text-accent">Your Supervisor</span>
+        <h2 class="mt-2 font-heading text-h2 font-bold uppercase text-text">About {tony.name}</h2>
+      </div>
+
+      <div class="mx-auto grid max-w-4xl grid-cols-1 gap-10 lg:grid-cols-[280px_1fr] lg:gap-12">
+        <div class="mx-auto w-full max-w-xs lg:mx-0">
+          <div class="overflow-hidden rounded-lg bg-background shadow-sm">
+            <Image
+              src={tony.image}
+              alt={tony.name}
+              width={400}
+              height={400}
+              loading="lazy"
+              class="aspect-square w-full object-cover object-top"
+            />
+          </div>
+          <h3 class="mt-4 font-heading text-lg font-semibold text-text">{tony.name}</h3>
+          <p class="text-sm text-text-muted">{tony.role}</p>
+        </div>
+
+        <div class="space-y-4">
+          {tony.bio.map((paragraph) => (
+            <p class="text-text-muted leading-relaxed">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+
+  <Footer slot="footer" />
+</BaseLayout>
