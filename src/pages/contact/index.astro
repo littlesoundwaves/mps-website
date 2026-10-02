@@ -8,12 +8,12 @@ import { siteData } from "../../data/siteData";
 ---
 
 <BaseLayout
-  title="Contact"
-  description={`Get in touch with ${brand.name}. Book a session or ask a question.`}
+  title="Contact My Pastoral Supervision"
+  description="Get in touch about online or in-person pastoral supervision for ministers, chaplains, and church workers."
 >
   <Header slot="header" />
 
-  <Banner title="Contact Us" />
+  <Banner title="Contact" />
 
   <section class="py-section">
     <div
@@ -104,7 +104,7 @@ import { siteData } from "../../data/siteData";
       <aside class="space-y-8 lg:col-span-2">
         {siteData.phoneFormatted && (
           <div>
-            <h3 class="font-heading text-lg font-semibold text-text">Call Us</h3>
+            <h3 class="font-heading text-lg font-semibold text-text">Call Me</h3>
             <a
               href={`tel:${siteData.phoneForTel}`}
               class="mt-1 block font-medium text-primary-light transition-colors hover:text-primary"
@@ -115,7 +115,7 @@ import { siteData } from "../../data/siteData";
         )}
 
         <div>
-          <h3 class="font-heading text-lg font-semibold text-text">Email Us</h3>
+          <h3 class="font-heading text-lg font-semibold text-text">Email Me</h3>
           <a
             href={`mailto:${siteData.email}`}
             class="mt-1 block font-medium text-primary-light transition-colors hover:text-primary"
